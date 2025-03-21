@@ -1,0 +1,120 @@
+body {
+  background: radial-gradient(circle, #3ea7bf 0%, #3ea7bf 80%, #05212c 100%);
+  background-size: 100% 150%;
+}
+
+.background-image {
+  position: absolute;
+  top: -300px;
+  left: 0;
+  width: 100vw;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.container {
+  border: 2px solid #dba83c;
+  border-radius: 15px;
+  background-color: white;
+}
+
+/* Estilos para el botón */
+.audio-player-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.play-btn {
+  background-color: #db2777;
+  border: none;
+  font-size: 16px;
+  color: #a6def2;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: background-color 0.3s;
+}
+
+.play-btn:hover {
+  background-color: #a6def2;
+  color: #db2777;
+}
+
+.play-btn:focus {
+  outline: none;
+}
+
+h1 {
+  font-family: 'Righteous', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-family: 'Righteous', sans-serif;
+}
+
+#result {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tema-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #db2777; /* rosa fuerte */
+  color: white;
+  border-radius: 15px;
+  border: 2px solid #db2777; /* borde rosa */
+  transition: all 0.4s ease;
+  cursor: pointer;
+  height: 80px; /* altura fija */
+}
+
+.tema-card h3 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.4s ease;
+  font-size: 1.2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tema-card .contenido {
+  position: absolute;
+  bottom: -40px; /* empieza oculto, solo sube 40px */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: #333;
+  padding: 0.5rem;
+  text-align: center;
+  transition: bottom 0.4s ease;
+  height: 40px;
+  font-size: 0.875rem;
+}
+
+.tema-card:hover h3 {
+  top: 25%; /* sube ligeramente */
+  font-size: 1.2rem;
+}
+
+.tema-card:hover .contenido {
+  bottom: 0; /* sube el contenido */
+}

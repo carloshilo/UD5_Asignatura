@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag Race España</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+
+<body class="text-white font-sans">
+
+  <!-- Imagen de fondo -->
+  <img src="src/images/cards.webp" alt="Imagen de fondo" class="background-image">
+
+  <div class="audio-player-container">
+    <audio id="audio-player" class="audio-player" loop>
+      <source src="src/audios/sissy-that-walk.mp3" type="audio/mp3">
+    </audio>
+    <button id="play-btn" class="play-btn">
+      <img id="play-img" src="src/images/play.gif" alt="Play" class="w-10 h-10 rounded-full">
+    </button>
+  </div>
+
+  <header class="text-center py-10">
+    <h1 class="text-5xl font-bold mb-2">Drag Race España</h1>
+    <p class="text-xl">¡Agárrate las bragas, marixoxo!</p>
+  </header>
+
+  <main class="max-w-3xl mx-auto p-4 bg-white rounded-2xl text-gray-800 shadow-2xl">
+    <div class="container p-3">
+      <!-- Introducción -->
+      <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-4 text-pink-600 text-center">Introducción</h2>
+        <p>En esta asignatura conocerás el maravilloso universo de <strong>Drag Race España</strong>. Aprenderás sobre
+          sus reinas, retos, pasarelas icónicas y mucho más. ¡Prepárate para brillar y demostrar tu conocimiento!</p>
+      </section>
+
+      <!-- Temas -->
+      <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-4 text-pink-600 text-center">Temas principales</h2>
+        <div class="space-y-6">
+          <!-- Tema 1 visible siempre -->
+          <div class="tema-card">
+            <h3>Historia de Drag Race</h3>
+            <div class="contenido">
+              <p>Descubre cómo nació el fenómeno y llegó hasta España. <a
+                  href="https://www.youtube.com/watch?v=MHlE3RIkRi0" target="_blank"
+                  class="text-pink-500 hover:text-pink-600 underline">Ver
+                  vídeo</a></p>
+            </div>
+          </div>
+
+          <!-- Temas ocultos (hidden) -->
+          <div class="tema-card hidden">
+            <h3>Ganadoras de las ediciones</h3>
+            <div class="contenido">
+              <p>Conoce a las reinas coronadas hasta la fecha y sus mejores momentos. <a
+                  href="https://rupaulsdragrace.fandom.com/wiki/Espa%C3%B1a's_Next_Drag_Superstar" target="_blank"
+                  class="text-pink-500 hover:text-pink-600 underline">Ver artículo</a></p>
+            </div>
+          </div>
+
+          <div class="tema-card hidden">
+            <h3>El Snatch Game</h3>
+            <div class="contenido">
+              <p>Explora el conocido reto amado por muchos y temido por otras. <a
+                  href="https://www.youtube.com/watch?v=jquynuEY0e0" target="_blank"
+                  class="text-pink-500 hover:text-pink-600 underline">Ver
+                  vídeo</a></p>
+            </div>
+          </div>
+
+          <div class="tema-card hidden">
+            <h3>Pasarelas i-có-ni-cas</h3>
+            <div class="contenido">
+              <p>Las pasarelas que marcaron historia y nos hicieron decir... ¡WEEERK! <a
+                  href="https://www.youtube.com/watch?v=iPZPY-rjcOk" target="_blank"
+                  class="text-pink-500 hover:text-pink-600 underline">Ver
+                  vídeo</a></p>
+            </div>
+          </div>
+
+          <div class="tema-card hidden">
+            <h3>Lip sync por tu vida</h3>
+            <div class="contenido">
+              <p>Los enfrentamientos más épicos para quedarse en la competición. <a
+                  href="https://www.youtube.com/watch?v=6rXbGuTSvyw" target="_blank"
+                  class="text-pink-500 hover:text-pink-600 underline">Ver
+                  video</a></p>
+            </div>
+          </div>
+
+          <!-- Botón "Ver más" -->
+          <button id="show-more-btn"
+            class="mt-6 bg-pink-600 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded flex justify-center items-center mx-auto">
+            <span>Ver más</span>
+            <svg class="w-5 h-5 ml-2 transform transition-transform duration-300" id="arrow"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 9l7 7 7-7"></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Cuestionario -->
+      <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-4 text-pink-600 text-center">Cuestionario interactivo</h2>
+        <div id="quiz-container" class="bg-pink-50 p-6 rounded-xl shadow-inner text-gray-900">
+          <p id="question-counter" class="text-right mb-2 text-sm text-gray-500"></p>
+          <h3 id="question" class="text-xl font-bold mb-4"></h3>
+          <div id="options" class="space-y-2"></div>
+          <button id="next-btn"
+            class="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded hidden">Siguiente</button>
+        </div>
+        <div id="result" class="hidden mt-6 bg-green-100 p-4 rounded-xl text-center text-green-700 font-bold text-xl">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="text-center py-8 text-white">
+    <p>Todos los derechos reservados a @mí</p>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+
+</html>
