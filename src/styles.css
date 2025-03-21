@@ -1,120 +1,135 @@
+/* Estilos generales para el fondo */
 body {
   background: radial-gradient(circle, #3ea7bf 0%, #3ea7bf 80%, #05212c 100%);
-  background-size: 100% 150%;
+  background-size: 100% 150%; /* Gradiente con un tamaño de fondo personalizado */
 }
 
+/* Estilos para la imagen de fondo */
 .background-image {
   position: absolute;
-  top: -300px;
+  top: -300px; /* Posicionamiento por encima de la vista */
   left: 0;
-  width: 100vw;
-  z-index: -1;
-  object-fit: cover;
+  width: 100vw; /* Ancho completo de la ventana */
+  z-index: -1; /* Colocada en el fondo */
+  object-fit: cover; /* Mantener la proporción de la imagen */
 }
 
+/* Estilos para la estructura del contenedor principal */
 .container {
-  border: 2px solid #dba83c;
-  border-radius: 15px;
-  background-color: white;
+  border: 2px solid #dba83c; /* Borde dorado */
+  border-radius: 15px; /* Bordes redondeados */
+  background-color: white; /* Fondo blanco */
 }
 
-/* Estilos para el botón */
+/* Estilos para el contenedor del reproductor de audio */
 .audio-player-container {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  z-index: 1000;
+  z-index: 1000; /* Prioridad visual sobre otros elementos */
   padding: 10px;
   border-radius: 10px;
 }
 
+/* Estilos para el botón de reproducción del audio */
 .play-btn {
-  background-color: #db2777;
+  background-color: #db2777; /* Rosa fuerte */
   border: none;
   font-size: 16px;
-  color: #a6def2;
+  color: #a6def2; /* Color del texto */
   font-weight: bold;
-  cursor: pointer;
+  cursor: pointer; /* Cambia el cursor cuando está sobre el botón */
   padding: 8px 16px;
-  border-radius: 100px;
-  transition: background-color 0.3s;
+  border-radius: 100px; /* Botón redondeado */
+  transition: background-color 0.3s; /* Efecto de transición para el color */
 }
 
+/* Estilo para el botón de reproducción cuando se pasa el ratón por encima */
 .play-btn:hover {
-  background-color: #a6def2;
-  color: #db2777;
+  background-color: #a6def2; /* Cambiar color de fondo */
+  color: #db2777; /* Cambiar color del texto */
 }
 
+/* Estilo para el botón cuando se selecciona */
 .play-btn:focus {
-  outline: none;
+  outline: none; /* Elimina el borde por defecto */
 }
 
+/* Estilos para el encabezado h1 */
 h1 {
   font-family: 'Righteous', sans-serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra en el texto */
 }
 
+/* Estilos para el encabezado h2 */
 h2 {
   font-family: 'Righteous', sans-serif;
 }
 
+/* Estilos para el resultado del cuestionario */
 #result {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out; /* Animación de aparición */
 }
 
+/* Animación para el resultado */
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0; /* Empieza invisible */
   }
-
   to {
-    opacity: 1;
+    opacity: 1; /* Termina completamente visible */
   }
 }
 
+/* Estilos para las tarjetas del tema */
 .tema-card {
   position: relative;
-  overflow: hidden;
-  background-color: #db2777; /* rosa fuerte */
+  overflow: hidden; /* Oculta el contenido fuera del área de la tarjeta */
+  background-color: #db2777; /* Rosa fuerte */
   color: white;
   border-radius: 15px;
-  border: 2px solid #db2777; /* borde rosa */
-  transition: all 0.4s ease;
+  border: 2px solid #db2777; /* Borde rosa */
+  transition: all 0.4s ease; /* Efecto de transición suave */
   cursor: pointer;
-  height: 80px; /* altura fija */
+  height: 80px; /* Altura fija para las tarjetas */
 }
 
+/* Estilos para el texto dentro de la tarjeta */
 .tema-card h3 {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: top 0.4s ease;
+  transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
+  transition: top 0.4s ease; /* Transición para el cambio de posición */
   font-size: 1.2rem;
   text-align: center;
-  white-space: nowrap;
+  white-space: nowrap; /* Evita que el texto se divida */
 }
 
+/* Estilos para el contenido oculto dentro de la tarjeta */
 .tema-card .contenido {
   position: absolute;
-  bottom: -40px; /* empieza oculto, solo sube 40px */
+  bottom: -40px; /* Empieza oculto, por debajo de la tarjeta */
   left: 0;
   width: 100%;
   background-color: white;
   color: #333;
   padding: 0.5rem;
   text-align: center;
-  transition: bottom 0.4s ease;
-  height: 40px;
+  transition: bottom 0.4s ease; /* Transición suave al subir */
+  height: 40px; /* Altura fija del contenido */
   font-size: 0.875rem;
 }
 
+/* Efecto cuando se pasa el ratón sobre la tarjeta */
 .tema-card:hover h3 {
-  top: 25%; /* sube ligeramente */
-  font-size: 1.2rem;
+  top: 25%; /* Subir ligeramente el texto */
+  font-size: 1.2rem; /* Aumentar el tamaño del texto */
 }
 
+/* Efecto cuando se pasa el ratón sobre la tarjeta para mostrar el contenido */
 .tema-card:hover .contenido {
-  bottom: 0; /* sube el contenido */
+  bottom: 0; /* Subir el contenido a su posición original */
 }
+

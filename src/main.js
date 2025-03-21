@@ -54,6 +54,8 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
+
+// Obtener los elementos del DOM
 const questionEl = document.getElementById('question');
 const optionsEl = document.getElementById('options');
 const nextBtn = document.getElementById('next-btn');
@@ -62,7 +64,7 @@ const questionCounterEl = document.getElementById('question-counter');
 
 // Función para mostrar las preguntas
 function showQuestion() {
-  // Limpiar el fondo de los botones
+  // Limpiar el fondo de los botones antes de cargar una nueva pregunta
   document.querySelectorAll('#options button').forEach(button => {
     button.classList.remove('bg-green-300', 'bg-red-300');
   });
@@ -75,18 +77,18 @@ function showQuestion() {
   questionCounterEl.textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
   optionsEl.innerHTML = '';
 
-  // Crear los botones de respuesta
+  // Crear los botones de respuesta para cada opción de la pregunta
   q.options.forEach(option => {
     const btn = document.createElement('button');
     btn.textContent = option;
     btn.className = 'w-full bg-white text-gray-800 border border-gray-300 rounded py-2';
 
-    // Acción al hacer clic en una opción
+    // Acción cuando el usuario hace clic en una opción
     btn.onclick = () => {
       // Desactivar todos los botones de respuesta después de seleccionar una opción
       document.querySelectorAll('#options button').forEach(b => b.disabled = true);
 
-      // Si la respuesta es correcta o incorrecta, dar feedback visual
+      // Si la respuesta es correcta o incorrecta, aplicar el feedback visual
       if (option === q.answer) {
         btn.classList.add('bg-green-300');
         score++;
@@ -104,7 +106,7 @@ function showQuestion() {
       // Mostrar el botón "Siguiente" solo después de seleccionar una opción
       nextBtn.classList.remove('hidden');
 
-      // Eliminar el hover solo después de seleccionar una opción
+      // Eliminar el hover después de seleccionar una opción
       document.querySelectorAll('#options button').forEach(button => {
         button.classList.remove('hover:bg-pink-200');
       });
@@ -113,7 +115,7 @@ function showQuestion() {
     optionsEl.appendChild(btn);
   });
 
-  // Mostrar hover solo cuando "Siguiente" está oculto (antes de seleccionar una opción)
+  // Mostrar hover solo cuando el botón "Siguiente" está oculto (antes de seleccionar una opción)
   if (nextBtn.classList.contains('hidden')) {
     document.querySelectorAll('#options button').forEach(button => {
       button.classList.add('hover:bg-pink-200');
@@ -121,24 +123,24 @@ function showQuestion() {
   }
 }
 
-// Lógica de "Siguiente" para el cuestionario
+// Lógica del botón "Siguiente"
 nextBtn.onclick = () => {
-  currentQuestion++;
+  currentQuestion++; // Avanzar a la siguiente pregunta
   if (currentQuestion < questions.length) {
-    showQuestion();
+    showQuestion(); // Mostrar la siguiente pregunta
   } else {
     // Si no quedan más preguntas, mostrar el resultado final
     document.getElementById('quiz-container').style.display = 'none';
 
-    // Cambiar el color del fondo del resultado según la puntuación
+    // Cambiar el fondo del resultado según la puntuación
     if (score <= 4) {
       resultEl.classList.add('bg-red-300'); // Fondo rojo para puntuación baja
       resultEl.classList.add('text-red-700'); // Texto rojo para puntuación baja
       resultEl.classList.remove('bg-green-100'); // Asegurarse de que el fondo verde no esté aplicado
       resultEl.classList.remove('text-green-700'); // Asegurarse de que el texto verde no esté aplicado
-      resultEl.innerHTML = `¡Has terminado! Tu puntuación es <strong>${score} de ${questions.length}</strong><br>Sashay... te vas.`;
+      resultEl.innerHTML = `¡Has terminado! Tu puntuación es <strong>${score} de ${questions.length}</strong><br>Sashay... te vas.`; // Mensaje de baja puntuación
     } else {
-      resultEl.innerHTML = `¡Has terminado! Tu puntuación es <strong>${score} de ${questions.length}</strong> 👑✨<br>¡Shantay, te quedas!`;
+      resultEl.innerHTML = `¡Has terminado! Tu puntuación es <strong>${score} de ${questions.length}</strong> 👑✨<br>¡Shantay, te quedas!`; // Mensaje de alta puntuación
     }
 
     // Mostrar el resultado
@@ -149,44 +151,42 @@ nextBtn.onclick = () => {
 // Inicializar la primera pregunta cuando la página cargue
 window.onload = showQuestion;
 
-// Lógica del "Ver más"
+// Lógica para el botón "Ver más"
 document.addEventListener('DOMContentLoaded', () => {
   const showMoreBtn = document.getElementById('show-more-btn');
   const hiddenSections = document.querySelectorAll('.container .hidden');
   let currentIndex = 0;
 
-  // Añadimos un evento de clic al botón "Ver más"
+  // Añadir un evento de clic al botón "Ver más"
   showMoreBtn.addEventListener('click', () => {
     // Si hay más secciones para mostrar
     if (currentIndex < hiddenSections.length) {
-      // Mostramos la siguiente sección
-      hiddenSections[currentIndex].classList.remove('hidden');
+      hiddenSections[currentIndex].classList.remove('hidden'); // Mostrar la siguiente sección
       currentIndex++;
     }
 
-    // Si ya no quedan más secciones, ocultamos el botón "Ver más"
+    // Si ya no quedan más secciones, ocultar el botón "Ver más"
     if (currentIndex === (hiddenSections.length - 2)) {
       showMoreBtn.classList.add('hidden');
     }
   });
 });
 
-// Obtener elementos
+// Lógica para el reproductor de audio
 const audioPlayer = document.getElementById('audio-player');
 const playBtn = document.getElementById('play-btn');
 const playImg = document.getElementById('play-img'); // Obtener la imagen del botón
 
-audioPlayer.volume = 0.04;
+audioPlayer.volume = 0.04; // Ajustar volumen al mínimo
 
-// Controlar la reproducción
+// Controlar la reproducción del audio
 playBtn.addEventListener('click', () => {
   if (audioPlayer.paused) {
     audioPlayer.play();
-    // Cambiar la imagen a 'play.gif' cuando se está reproduciendo
-    playImg.src = 'src/images/cd.gif';
+    playImg.src = 'src/images/cd.gif'; // Cambiar imagen a 'cd.gif' cuando se está reproduciendo
   } else {
     audioPlayer.pause();
-    // Cambiar la imagen a 'cd.gif' cuando se está pausando
-    playImg.src = 'src/images/play.gif';
+    playImg.src = 'src/images/play.gif'; // Cambiar imagen a 'play.gif' cuando se pausa
   }
 });
+
