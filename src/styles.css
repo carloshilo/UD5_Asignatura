@@ -36,7 +36,6 @@ body {
   background-color: #db2777; /* Rosa fuerte */
   border: none;
   font-size: 16px;
-  color: #a6def2; /* Color del texto */
   font-weight: bold;
   cursor: pointer; /* Cambia el cursor cuando está sobre el botón */
   padding: 8px 16px;
@@ -47,7 +46,6 @@ body {
 /* Estilo para el botón de reproducción cuando se pasa el ratón por encima */
 .play-btn:hover {
   background-color: #a6def2; /* Cambiar color de fondo */
-  color: #db2777; /* Cambiar color del texto */
 }
 
 /* Estilo para el botón cuando se selecciona */
